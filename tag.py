@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import re
 
 
 def _get_filepath(filename):
@@ -21,7 +22,10 @@ def _ask_for_comment():
     return comment
 
 
-def _store_data():
+def _get_tags(comment):
+    # Store tags as a list
+    tags = re.findall('(?<=#)\w+', comment)
+    return tags
 
     # I'm thinking of storing filename, file path, comment and tags into an output file
     # Make code to be able to identify '#' symbol and mark word after that
